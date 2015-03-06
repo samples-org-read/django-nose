@@ -19,9 +19,11 @@ matrix:
       env: DJANGO="Django>=1.4,<1.5"
     - python: "2.6"
       env: DJANGO="Django>=1.7,<1.8"
+
 install:
   - if [ $DJANGO = 'Django>=1.4,<1.5' -o $DJANGO = 'Django>=1.6,<1.7' ]; then pip install south; fi
   - pip install "$DJANGO"
   - pip install -e .
+
 script:
   - ./runtests.sh
